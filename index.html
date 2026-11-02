@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="bn">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#f3f6fa">
+    <title>HELLO JAMALPUR — Business Management</title>
+    
+    <!-- External Fonts & Scripts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.4/dist/jspdf.plugin.autotable.min.js"></script>
+    
+    <!-- CSS File Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="loading" id="loading">
+        <div class="loadinner">
+            <div class="brandmark" style="margin:0 auto 14px"><i data-lucide="boxes"></i></div>
+            <div style="font-weight:800;letter-spacing:1px">HELLO JAMALPUR</div>
+            <div class="sub">Business Management Workspace</div><i data-lucide="settings" class="gear"></i>
+            <div class="signature">POWERED BY MAXORA</div>
+        </div>
+    </div>
+    
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brandmark"><i data-lucide="boxes"></i></div>HELLO JAMALPUR
+        </div>
+        <div class="signature">POWERED BY MAXORA</div>
+        <div class="navlabel">WORKSPACE</div>
+        <nav class="nav" id="sidenav">
+            <button class="active" data-page="dashboard"><i data-lucide="layout-dashboard"></i>Dashboard</button>
+            <button data-page="brands"><i data-lucide="file-spreadsheet"></i>Brand Stock Sheets</button>
+            <button data-page="customers"><i data-lucide="users"></i>Customers</button>
+            <button data-page="history"><i data-lucide="history"></i>Transactions</button>
+            <button data-page="notifications"><i data-lucide="bell"></i>Notifications <span id="sideunread"></span></button>
+            <button data-page="reports"><i data-lucide="chart-no-axes-combined"></i>Reports</button>
+            <button data-page="settings"><i data-lucide="settings"></i>Settings</button>
+        </nav>
+        <div class="sidefoot">Local workspace · IndexedDB<br>HELLO JAMALPUR<br><span class="signature-inline">POWERED BY MAXORA</span></div>
+    </aside>
+
+    <main class="main">
+        <div class="mobilehead">
+            <div class="mobilebrandwrap">
+                <div class="brand">
+                    <div class="brandmark"><i data-lucide="boxes"></i></div>HELLO JAMALPUR
+                </div><span class="signature-inline">MAXORA</span>
+            </div>
+            <button class="iconbtn" onclick="go('notifications')"><i data-lucide="bell"></i><b class="badgecount" id="mobileunread">0</b></button>
+        </div>
+        
+        <header class="topbar">
+            <div>
+                <h1 id="pagetitle">Dashboard</h1>
+                <div class="sub" id="pagesub">Your business at a glance</div>
+            </div>
+            <div class="actions">
+                <button class="btn" onclick="quickMenu()"><i data-lucide="plus"></i><span>Quick Add</span></button>
+                <button class="iconbtn" title="Notifications" onclick="go('notifications')"><i data-lucide="bell"></i><b class="badgecount" id="topunread">0</b></button>
+            </div>
+        </header>
+        
+        <div id="view"></div>
+    </main>
+
+    <nav class="bottomnav">
+        <button class="active" data-page="dashboard"><i data-lucide="home"></i>Home</button>
+        <button data-page="brands"><i data-lucide="file-spreadsheet"></i>Stock</button>
+        <button onclick="quickMenu()"><i data-lucide="plus-circle"></i>Add</button>
+        <button data-page="customers"><i data-lucide="users"></i>Customers</button>
+        <button data-page="reports"><i data-lucide="chart-no-axes-combined"></i>Reports</button>
+    </nav>
+
+    <div class="modalback" id="modalback" onclick="if(event.target===this)closeModal()">
+        <div class="modal" id="modal"></div>
+    </div>
+    
+    <div class="toast" id="toast"></div>
+
+    <!-- JS File Link -->
+    <script src="script.js"></script>
+</body>
+
+</html>
